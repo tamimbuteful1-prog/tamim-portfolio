@@ -1,0 +1,64 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>الحماية الاجتماعية</title><style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#071121;color:#edf7ff;font-family:Tahoma,Arial,sans-serif}body{background:radial-gradient(circle at 52% 44%,#142d4a 0%,#09192c 47%,#050c16 100%)}#stage{position:fixed;inset:0;overflow:hidden;touch-action:none;cursor:grab}#stage:active{cursor:grabbing}#world{position:absolute;width:1700px;height:1160px;left:50%;top:50%;transform-origin:center center}svg{position:absolute;inset:0;overflow:visible;pointer-events:none}svg path{stroke:#4897bb;stroke-width:2.5;fill:none;opacity:.8;filter:drop-shadow(0 0 4px rgba(41,161,223,.22))}button{font:inherit}.circle{position:absolute;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;text-align:center;color:white;cursor:pointer;background:linear-gradient(145deg,#1b4267,#0d223a);border:2px solid #387397;box-shadow:inset 0 3px 22px #ffffff0b,0 15px 34px #0009;padding:12px;line-height:1.5;font-weight:700;transition:background .15s,border-color .15s}.circle:hover,.circle:focus-visible{background:#244d72;border-color:#86e4e6;outline:none}.main{width:225px;height:225px;font-size:27px;background:radial-gradient(circle at 30% 22%,#22618b,#112a4b 70%);border:3px solid #74dec9;z-index:3}.branch{width:165px;height:165px;font-size:19px;z-index:4}.concept{width:120px;height:120px;font-size:15px;background:linear-gradient(145deg,#1c3652,#101d34);border-color:#577899;z-index:5}.concept:hover{border-color:#9be1f4}.controls{position:fixed;bottom:24px;left:24px;display:flex;gap:10px;z-index:20;direction:ltr}.controls button{width:52px;height:52px;border-radius:15px;background:#16314e;border:1px solid #44617e;color:white;font-size:30px;cursor:pointer;box-shadow:0 8px 25px #0008}.controls button:hover{background:#245275}#modal{position:fixed;inset:0;z-index:30;background:#0009;display:none;place-items:center;padding:18px}#modal.open{display:grid}.dialog{position:relative;width:min(630px,95vw);max-height:82vh;overflow:auto;background:#0e2036;border:1px solid #47708b;border-radius:23px;padding:30px;box-shadow:0 30px 90px #000b}.dialog h2{font-size:27px;margin:0 0 20px}.dialog .section{margin:18px 0;line-height:1.9;color:#e8f2fc}.dialog strong{color:#75e2c7;display:block;margin-bottom:5px}.dialog p{margin:0}.close{position:absolute;left:14px;top:13px;width:35px;height:35px;border:1px solid #55738e;border-radius:50%;background:#173652;color:white;font-size:24px;cursor:pointer}.small{font-size:12px;color:#b9d4e8;margin-top:22px}.hidden{display:none}@media(max-width:700px){.controls{left:15px;bottom:15px}.controls button{width:45px;height:45px}.dialog{padding:22px}.dialog h2{font-size:22px}}
+</style></head><body><div id="stage"><div id="world"><svg id="lines" width="1700" height="1160" viewBox="0 0 1700 1160"></svg><button class="circle main" id="root" style="left:850px;top:580px">جندي على<br>الحدود الرقمية</button></div></div><div class="controls"><button id="minus" title="تصغير" aria-label="تصغير">−</button><button id="plus" title="تكبير" aria-label="تكبير">+</button></div><div id="modal"><div class="dialog"><button class="close" id="close" aria-label="إغلاق">×</button><h2 id="modalTitle"></h2><div id="modalBody"></div></div></div><script>
+const branches = [
+{
+    id:'social', title:'الحماية الاجتماعية', color:'#ffd76a',
+    description:'هذا الفرع يتعامل مع المناعة الاجتماعية والأسلوب العام في قراءة ما يخص المجتمع والوطن.',
+    concepts:[
+      {title:'رفض التعميم والعدمية', type:'ممارسة', source:'خطاب توعوي/تفكير نقدي', definition:'تجنب تحويل الحالات الفردية أو المشكلات إلى أحكام مطلقة مثل «كل شيء سيئ» أو «الجميع فاسد».', why:'ذُكر الاسمان لأن الخطر يأتي من التعميم على الجميع، ومن العدمية التي تنفي وجود أي أمل.', example:'بدلاً من تعميم خطأ فرد على مجتمع كامل، يُعامل كحالة محددة تحتاج فهماً وسياقاً.'},
+      {title:'حماية النسيج الاجتماعي', type:'ممارسة', source:'social cohesion studies', definition:'الحفاظ على الروابط المشتركة وعدم السماح للخلافات أن تتحول إلى كراهية أو قطيعة.', why:'سمي «نسيجاً» لأن المجتمع يشبه قماشاً واحداً إذا تمزق ضعفت قوته.', example:'عند ظهور نقاش حساس، يتم التركيز على لغة الاحترام وعدم تحويله إلى خصومة جماعية.'},
+      {title:'التربية الإعلامية للأبناء', type:'ممارسة/مهارة', source:'media literacy education', definition:'تعليم الصغار والشباب كيف يفهمون الرسائل الإعلامية ويقيّمونها ويتعاملون معها بحذر.', why:'سميت تربية لأنها عملية بناء مستمرة، وإعلامية لأنها تختص بطريقة التعامل مع الإعلام.', example:'تعليم الطالب ألا يصدق كل فيديو متداول، وأن يسأل عن المصدر والسياق قبل المشاركة.'}
+    ]}
+];
+
+
+
+const world = document.getElementById('world');
+const svg = document.getElementById('lines');
+const stage = document.getElementById('stage');
+const branch = branches[0];
+const center = document.getElementById('root');
+const CX = 850, CY = 580;
+let zoom = 1, tx = 0, ty = 0;
+center.textContent = branch.title;
+center.onclick = () => show({title:branch.title, definition:branch.description});
+
+function drawMap(narrow) {
+  svg.replaceChildren();
+  world.querySelectorAll('.concept').forEach(node => node.remove());
+  branch.concepts.forEach((item, index) => {
+    const angle = -Math.PI / 2 + index * 2 * Math.PI / branch.concepts.length;
+    const x = CX + (narrow ? 220 : 335) * Math.cos(angle);
+    const y = CY + (narrow ? 295 : 275) * Math.sin(angle);
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    const attributes = {x1:CX,y1:CY,x2:x,y2:y,stroke:branch.color,'stroke-width':2,opacity:.65};
+    for (const [key, value] of Object.entries(attributes)) line.setAttribute(key, value);
+    svg.append(line);
+    const button = document.createElement('button');
+    button.className = 'circle concept';
+    button.style.cssText = 'left:'+x+'px;top:'+y+'px;width:136px;height:136px;font-size:17px';
+    button.textContent = item.title;
+    button.onclick = () => show(item);
+    world.append(button);
+  });
+}
+function show(item){document.getElementById('modalTitle').textContent=item.title;document.getElementById('modalBody').innerHTML='';let body=document.getElementById('modalBody');[['التعريف',item.definition],['ليش اسمه كذا؟',item.why],['مثال',item.example],['التصنيف',item.type],['المرجع',item.source]].forEach(([k,v])=>{let d=document.createElement('div');d.className='section';let strong=document.createElement('strong');strong.textContent=k;let p=document.createElement('p');if(!v)return;p.textContent=v;d.append(strong,p);body.appendChild(d)});document.getElementById('modal').classList.add('open')}
+const modal=document.getElementById('modal');function close(){modal.classList.remove('open')}document.getElementById('close').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+function apply(){world.style.transform=`translate(calc(-50% + ${tx}px),calc(-50% + ${ty}px)) scale(${zoom})`}
+function setZoom(z){zoom=Math.max(.2,Math.min(2.4,z));apply()}document.getElementById('plus').onclick=()=>setZoom(zoom*1.2);document.getElementById('minus').onclick=()=>setZoom(zoom/1.2);
+let drag=null;stage.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;drag={x:e.clientX,y:e.clientY,tx,ty};stage.setPointerCapture(e.pointerId)});stage.addEventListener('pointermove',e=>{if(!drag)return;tx=drag.tx+e.clientX-drag.x;ty=drag.ty+e.clientY-drag.y;apply()});stage.addEventListener('pointerup',()=>drag=null);stage.addEventListener('pointercancel',()=>drag=null);
+stage.addEventListener('wheel',e=>{e.preventDefault();setZoom(zoom*(e.deltaY>0?.92:1.08))},{passive:false});
+
+function fit() {
+  const narrow = innerWidth < 580;
+  zoom = Math.min(1, (innerWidth - 16) / (narrow ? 576 : 806), (innerHeight - 64) / 736);
+  tx = 0;
+  ty = -12;
+  drawMap(narrow);
+  apply();
+}
+fit();
+window.addEventListener('resize', fit);
+
+</script></body></html>
