@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>عن ماذا ستتحدث حلقات جندي على الحدود الرقمية؟</title>
+<meta name="description" content="سبعة مجالات وموضوعات ستتناولها حلقات مبادرة جندي على الحدود الرقمية القادمة.">
+<meta property="og:title" content="عن ماذا ستتحدث حلقات جندي على الحدود الرقمية؟">
+<meta property="og:description" content="استكشف ملفات المبادرة: سبعة مجالات وأفكار حلقات قادمة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#c23d2e;--g2:#d65446;--g3:#efb4aa;--blk:#171b23;--ink:#1d1e20;--paper:#e6dfcd;--paper2:#d2cab4;--txt:#ebe5d8;--mut:rgba(235,229,216,.58);--line:rgba(194,61,46,.8)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--blk);color:var(--txt)}
+body{font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* atmosphere */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+ radial-gradient(1100px 760px at 50% 38%,#2b3242 0%,#1f2531 45%,#151920 100%)}
+.bg::after{content:"";position:absolute;inset:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .12 0 0 0 0 .14 0 0 0 0 .19 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E")}
+canvas#net{display:none}
+.docs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.docs span{position:absolute;background:linear-gradient(170deg,#e4ddcb,#c9c1ab);opacity:.16;filter:blur(5px);border-radius:3px}
+.docs i{position:absolute;height:2px;background:#c23d2e;opacity:.35;transform-origin:right center;filter:blur(.6px)}
+canvas#net{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.2;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.vign{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 50%,rgba(0,0,0,.75))}
+.scan{position:fixed;left:0;right:0;height:140px;z-index:1;pointer-events:none;background:linear-gradient(transparent,rgba(235,229,216,.035),transparent);animation:scan 9s linear infinite}
+@keyframes scan{from{top:-140px}to{top:100%}}
+
+.page{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:26px 24px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.2em;color:var(--mut)}
+.top .rec{display:flex;align-items:center;gap:8px}
+.top .rec i{width:8px;height:8px;border-radius:50%;background:var(--g2);box-shadow:0 0 10px var(--g2);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.2}}
+
+header.hero{text-align:center;padding:38px 0 6px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:Alexandria,sans-serif;font-weight:500;font-size:.88rem;color:var(--g3);border:1px solid rgba(214,84,70,.4);padding:7px 16px;border-radius:999px;background:rgba(194,61,46,.12)}
+h1{margin-top:20px;font-family:Alexandria,sans-serif;font-weight:900;font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.3}
+h1 mark{background:none;color:var(--g2);position:relative}
+.sub{margin:14px auto 0;max-width:620px;color:var(--mut);font-size:clamp(.95rem,1.4vw,1.08rem);line-height:1.8}
+.hint{margin-top:14px;font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.25em;color:rgba(233,179,170,.7)}
+
+/* map */
+.map{position:relative;height:min(78vh,760px);min-height:620px;margin-top:6px}
+svg.threads{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.threads path{fill:none;stroke:var(--line);stroke-width:1.6;stroke-dasharray:5 7;transition:stroke .4s,opacity .4s}
+.threads path.on{stroke:var(--g3);stroke-width:2.4;stroke-dasharray:none;filter:drop-shadow(0 0 6px var(--g2))}
+.threads circle{fill:var(--g3)}
+.map.focus .threads path:not(.on){opacity:.15}
+
+.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:210px;height:210px;border-radius:50%;display:grid;place-items:center;text-align:center;z-index:2;
+ background:radial-gradient(circle at 40% 35%,#2b3242,#171b23 70%);border:1px solid rgba(214,84,70,.55);box-shadow:0 0 0 10px rgba(194,61,46,.12),0 0 60px rgba(214,84,70,.25),inset 0 0 40px rgba(0,0,0,.6)}
+.core::before{content:"";position:absolute;inset:-22px;border-radius:50%;border:1px dashed rgba(214,84,70,.35);animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.core b{display:block;font-family:Alexandria,sans-serif;font-weight:900;font-size:1.25rem;line-height:1.45}
+.core small{display:block;margin-top:6px;font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.25em;color:var(--g3)}
+
+.node{position:absolute;width:200px;transform:translate(-50%,-50%) rotate(var(--r));z-index:3;text-align:right;transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .4s,opacity .4s;animation:pop .8s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:var(--d)}
+@keyframes pop{from{transform:translate(-50%,-30%) rotate(var(--r)) scale(.85)}}
+.node:hover,.node:focus-visible,.node.on{transform:translate(-50%,-50%) rotate(0) scale(1.06);outline:none}
+.map.focus .node:not(.on){opacity:.4;filter:grayscale(.6)}
+.folder{position:relative;display:block;background:linear-gradient(170deg,var(--paper),var(--paper2));color:#1d1e20;border-radius:4px 4px 6px 6px;padding:26px 16px 14px;box-shadow:0 20px 40px -18px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.2)}
+.folder::before{content:"";position:absolute;top:-14px;right:14px;width:84px;height:16px;background:var(--g);border-radius:6px 6px 0 0}
+.folder::after{content:"";position:absolute;top:-7px;left:50%;width:15px;height:15px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle at 35% 30%,#ffffff,#a9abb0 45%,#5d6066 80%);box-shadow:0 3px 5px rgba(0,0,0,.5)}
+.node.on .folder{box-shadow:0 26px 50px -16px rgba(0,0,0,.95),0 0 0 2px var(--g2),0 0 30px rgba(214,84,70,.35)}
+.fno{position:absolute;top:-12px;right:22px;z-index:1;font-family:"Space Mono",monospace;font-weight:700;font-size:.62rem;color:#ebe5d8;letter-spacing:.12em}
+.ficon{width:38px;height:38px;border-radius:9px;background:#1d1e20;color:var(--g3);display:grid;place-items:center;margin-bottom:10px}
+.ficon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ftitle{font-family:Alexandria,sans-serif;font-weight:700;font-size:1.06rem;line-height:1.45}
+.fmeta{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-family:"Space Mono",monospace;font-size:.62rem;color:#6b6558;letter-spacing:.08em}
+.fmeta .stamp{color:var(--g);border:1.5px solid var(--g);padding:1px 6px;border-radius:3px;transform:rotate(-4deg);font-family:Alexandria,sans-serif;font-size:.68rem;letter-spacing:0;font-weight:700}
+
+/* drawer */
+.shade{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .4s}
+.shade.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(470px,100%);z-index:21;background:linear-gradient(180deg,#232a37,#171b23);border-right:1px solid rgba(214,84,70,.35);box-shadow:30px 0 80px rgba(0,0,0,.7);transform:translateX(-104%);transition:transform .55s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dhead{padding:22px 22px 18px;border-bottom:1px solid rgba(214,84,70,.2);position:relative}
+.dclose{position:absolute;top:16px;left:16px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(235,229,216,.2);display:grid;place-items:center;transition:.25s}
+.dclose:hover{background:var(--g);border-color:var(--g)}
+.dclose svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round}
+.dno{font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.25em;color:var(--g3)}
+.dtitle{margin-top:6px;font-family:Alexandria,sans-serif;font-weight:900;font-size:1.65rem;line-height:1.35;padding-left:46px}
+.dlead{margin-top:10px;color:var(--mut);font-size:.95rem;line-height:1.8}
+.dbody{flex:1;overflow:auto;padding:16px 16px 30px;scrollbar-width:thin;scrollbar-color:var(--g) transparent}
+.topic{border:1px solid rgba(235,229,216,.1);border-radius:12px;margin-bottom:10px;background:rgba(255,255,255,.02);overflow:hidden;transition:border-color .3s,background .3s;animation:tin .5s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes tin{from{opacity:.2;transform:translateY(12px)}}
+.topic.open{border-color:rgba(214,84,70,.55);background:rgba(194,61,46,.1)}
+.tbtn{width:100%;display:flex;align-items:center;gap:12px;padding:14px 14px;text-align:right}
+.tnum{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-family:"Space Mono",monospace;font-size:.72rem;font-weight:700;background:rgba(214,84,70,.14);color:var(--g3)}
+.tname{flex:1;font-family:Alexandria,sans-serif;font-weight:500;font-size:1.02rem}
+.tchev{flex:none;width:18px;height:18px;stroke:var(--mut);fill:none;stroke-width:2;transition:transform .35s}
+.topic.open .tchev{transform:rotate(180deg);stroke:var(--g3)}
+.tmore{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}
+.topic.open .tmore{grid-template-rows:1fr}
+.tmore>div{overflow:hidden}
+.tdef{padding:0 14px 0 56px;color:#d6d0c3;line-height:1.85;font-size:.95rem}
+.idea{margin:12px 14px 14px;padding:14px 14px 14px;border-radius:10px;background:var(--paper);color:#1d1e20;position:relative;box-shadow:0 10px 24px -14px rgba(0,0,0,.9)}
+.idea::before{content:"";position:absolute;top:-6px;right:24px;width:60px;height:14px;background:rgba(235,229,216,.55);transform:rotate(-3deg)}
+.idea .lbl{display:flex;align-items:center;gap:7px;font-family:Alexandria,sans-serif;font-weight:700;font-size:.78rem;color:var(--g)}
+.idea .lbl svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.idea p{margin-top:6px;font-weight:500;line-height:1.75}
+.dfoot{padding:14px 18px;border-top:1px solid rgba(214,84,70,.2);display:flex;gap:10px}
+.dfoot button{flex:1;padding:11px;border-radius:999px;border:1px solid rgba(235,229,216,.18);font-family:Alexandria,sans-serif;font-size:.9rem;transition:.25s}
+.dfoot button:hover{background:var(--g);border-color:var(--g)}
+
+footer{position:relative;z-index:2;text-align:center;padding:10px 20px 34px;color:var(--mut);font-size:.85rem}
+footer b{color:var(--g3);font-weight:500}
+
+@media(max-width:900px){
+ .map{height:auto;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:26px 14px;padding-top:150px;margin-top:22px}
+ svg.threads{display:none}
+ .core{top:0;width:150px;height:150px;transform:translateX(-50%)}
+ .core b{font-size:.95rem}
+ .core::before{inset:-14px}
+ .node{position:relative;left:auto!important;top:auto!important;width:auto;transform:rotate(var(--r))}
+ .node:hover,.node.on{transform:scale(1.02)}
+ @keyframes pop{from{transform:translateY(20px)}}
+ .map::before{content:"";position:absolute;top:150px;bottom:0;left:50%;border-left:1.5px dashed var(--line)}
+ .drawer{top:auto;left:0;right:0;width:100%;height:86vh;height:86dvh;border-right:0;border-top:1px solid rgba(214,84,70,.4);border-radius:22px 22px 0 0;transform:translateY(104%)}
+ .drawer::before{content:"";position:absolute;top:8px;left:50%;width:44px;height:4px;border-radius:2px;background:rgba(235,229,216,.25);transform:translateX(-50%)}
+ .dtitle{font-size:1.4rem}
+}
+@media(max-width:380px){.ftitle{font-size:.95rem}.folder{padding:24px 12px 12px}}
+@media(max-width:560px){.top span:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}.topic{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg"></div><canvas id="net"></canvas><div class="docs" aria-hidden="true"><span style="width:240px;height:320px;right:3%;top:12%;transform:rotate(8deg)"></span><span style="width:200px;height:250px;left:2%;top:50%;transform:rotate(-11deg)"></span><span style="width:170px;height:120px;left:16%;top:7%;transform:rotate(-5deg)"></span><span style="width:150px;height:200px;right:16%;bottom:-40px;transform:rotate(-7deg)"></span><i style="width:60vw;right:6%;top:24%;transform:rotate(14deg)"></i><i style="width:45vw;left:4%;top:70%;transform:rotate(-9deg)"></i></div><div class="grain"></div><div class="vign"></div><div class="scan"></div>
+
+<div class="page">
+  <div class="top"><span class="rec"><i></i>CASE BOARD · ACTIVE</span><span dir="ltr">JUNDI / DIGITAL FRONTIER</span></div>
+
+  <header class="hero">
+    <span class="kicker">مبادرة جندي على الحدود الرقمية</span>
+    <h1>عن ماذا ستتحدث حلقات<br><mark>جندي على الحدود الرقمية؟</mark></h1>
+    <p class="sub">فيديوهات قصيرة قادمة تكشف أساليب التضليل والتأثير، وكيف نتعامل معها بوعي.</p>
+    <p class="hint">افتح أي ملف ←</p>
+  </header>
+
+  <section class="map" id="map">
+    <svg class="threads" id="threads"></svg>
+    <div class="core"><div><b>جندي على<br>الحدود الرقمية</b><small dir="ltr">7 FILES</small></div></div>
+  </section>
+</div>
+
+<footer>هذه مجالات وأفكار لحلقات <b>قادمة</b> قيد الإعداد.</footer>
+
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dtitle">
+  <div class="dhead">
+    <button class="dclose" id="dclose" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="dno" id="dno"></div>
+    <h2 class="dtitle" id="dtitle"></h2>
+    <p class="dlead" id="dlead"></p>
+  </div>
+  <div class="dbody" id="dbody"></div>
+  <div class="dfoot"><button id="prev">→ الملف السابق</button><button id="next">الملف التالي ←</button></div>
+</aside>
+
+<script>
+const ICONS={
+ theory:'<path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/>',
+ mind:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z"/>',
+ war:'<path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6l-8-3Z"/><path d="M12 8v5M12 16h.01"/>',
+ algo:'<circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.8 7.3 10.6 16M16.2 7.3 13.4 16M8.2 6h7.6"/>',
+ social:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.4c3.2-.6 6.5 1.6 6.5 5.6"/>',
+ shield:'<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M8.5 11l1.8 1.8 3.4-3.6"/>',
+ act:'<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/>'
+};
+const FILM='<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>';
+
+const DATA=[
+ {t:"نظريات الاتصال والإعلام",i:"theory",lead:"كيف يؤثر تكرار الرسالة وطريقة عرضها في فهمنا للأحداث.",items:[
+  ["ترتيب الأولويات الإعلامية","حين يكثر الحديث عن قضية نظنها الأهم، حتى لو لم تكن كذلك.","لماذا تشعر أن موضوعًا واحدًا يملأ الدنيا هذا الأسبوع؟ نتتبع كيف تُصنع «الأولوية»."],
+  ["الغرس الثقافي","التعرض الطويل لصورة متكررة يزرع في الذهن تصورًا عن الواقع.","كم مقطعًا سلبيًا تحتاج لتصدّق أن مجتمعك كله كذلك؟"],
+  ["التأطير الإعلامي","الخبر نفسه، بزاوية مختلفة، يصنع انطباعًا مختلفًا.","عنوانان لخبر واحد: كيف تغيّر كلمة واحدة حكمك على الحدث."],
+  ["حارس البوابة","من يقرر ما يصل إليك وما يُحجب؟ محررون… واليوم خوارزميات أيضًا.","من حارس بوابتك اليوم؟ غرفة الأخبار مقابل خلاصة التطبيق."],
+  ["الرصاصة السحرية","نموذج تاريخي افترض أن الرسالة تصيب الجمهور مباشرة، وتجاوزه البحث العلمي لاحقًا.","هل الجمهور ساذج فعلًا؟ قصة نظرية انتهت، وما بقي منها في عصر المنصات."]]},
+ {t:"التأثير النفسي والاجتماعي",i:"mind",lead:"كيف يلعب المحتوى بالمشاعر، ويصنع صورًا سلبية، ويحوّل الخلاف إلى خصومة.",items:[
+  ["الشيطنة والتنميط","اختزال جماعة كاملة في صورة سلبية واحدة تتكرر.","كيف تتحول نكتة متكررة عن فئة إلى قناعة راسخة؟"],
+  ["نزع الإنسانية","وصف الآخر بلغة تُسقط عنه إنسانيته، فيسهل كرهه.","كلمات تمهّد للكراهية: كيف تلتقطها قبل أن تتبناها؟"],
+  ["صناعة الإحباط واليأس","محتوى يكرر أن لا أمل ولا فائدة، ليضعف الثقة والمبادرة.","لماذا يزيد التصفح الليلي شعورك بأن كل شيء سيئ؟"],
+  ["فرّق تسد","تضخيم الفوارق بين أبناء المجتمع الواحد ليتفرقوا.","منشور واحد وفريقان متخاصمان: تشريح حملة تفريق."],
+  ["هندسة الانقسامات","صناعة الاستقطاب عمدًا عبر قضايا خلافية مختارة بعناية.","من يربح حين نتشاجر؟ نتتبع نقاشًا مُصطنعًا من بدايته."],
+  ["الدعاية السوداء","رسائل تُنسب زورًا إلى غير مصدرها الحقيقي.","حساب يتحدث باسمك وليس منك: كيف تكشف الانتحال؟"]]},
+ {t:"الحروب والاستراتيجيات الإعلامية",i:"war",lead:"كيف تُستخدم المعلومات للتأثير في المجتمعات، مع التمييز بين المفهوم العلمي والمصطلح المتداول.",items:[
+  ["الحرب النفسية","استخدام الرسائل للتأثير في المعنويات والقرارات.","الشائعة كسلاح: كيف تُصمم لتهزّ الثقة؟"],
+  ["الحرب المعرفية","استهداف طريقة التفكير نفسها، لا المعلومة فقط.","حين يصبح عقلك ساحة المعركة: ماذا تعني الحرب المعرفية؟"],
+  ["الحرب الناعمة","التأثير عبر الثقافة والقيم والجاذبية بدل القوة.","مسلسل، أغنية، قدوة: أدوات تأثير لا تشبه الحرب."],
+  ["الحرب الهجينة","مزج أدوات إعلامية وإلكترونية واقتصادية وغيرها في وقت واحد.","حرب بلا جبهة: كيف تتداخل الأدوات؟"],
+  ["حروب الجيل الرابع والخامس","مصطلحات شائعة تختلف تعريفاتها بين الباحثين؛ نوضح الثابت والمختلف فيها.","«الجيل الخامس»: مفهوم علمي أم مصطلح مستهلك؟"],
+  ["القوة الناعمة والقوة الذكية","الجذب والإقناع، ثم الجمع الذكي بينهما وبين أدوات القوة الأخرى.","كيف تبني الدول صورتها؟ الفرق بين الجاذبية والضغط."]]},
+ {t:"المنصات والخوارزميات",i:"algo",lead:"لماذا يظهر لنا محتوى معيّن، وكيف ينتشر، وكيف يرفعه تفاعلنا دون أن نقصد.",items:[
+  ["اقتصاد الانتباه","انتباهك هو السلعة، والمحتوى المثير يكسب.","لماذا يربح الغضب؟ حساب بسيط لاقتصاد الانتباه."],
+  ["غرف الصدى","تسمع من يشبهك فقط، فتظن أن الجميع يرى ما تراه.","هل الجميع يتفق معك فعلًا؟ اخرج من غرفة الصدى."],
+  ["فقاعات التصفية","الخوارزمية تختار لك ما تراه بناءً على سلوكك.","هاتفان وبحث واحد ونتيجتان: تجربة فقاعة التصفية."],
+  ["الحسابات الآلية والشبكات المنسقة","حسابات تعمل معًا لتضخيم رسالة وكأنها رأي عام.","علامات تكشف الحساب الآلي في ثوانٍ."],
+  ["صناعة الإجماع الزائف","إيهام الناس بأن الأغلبية تتبنى رأيًا معيّنًا.","ألف تعليق متشابه: إجماع حقيقي أم مصنوع؟"],
+  ["الاستهداف الدقيق","رسائل مفصّلة على مقاس اهتماماتك ومخاوفك.","لماذا وصلك هذا المنشور تحديدًا؟"],
+  ["الاستفزاز الرقمي","محتوى مصمم ليغضبك، لأن ردك يرفع انتشاره.","ردّك الغاضب هدية للمستفز: كيف تتعامل معه؟"]]},
+ {t:"الحماية الاجتماعية",i:"social",lead:"كيف نحمي تماسك المجتمع من التعميم واليأس وخطاب التفرقة.",items:[
+  ["رفض التعميم","خطأ شخص لا يمثل مدينة أو قبيلة أو بلدًا.","«كلهم كذا»: جملة واحدة تهدم الكثير."],
+  ["مواجهة العدمية وصناعة اليأس","التمسك بالحقائق والصورة الكاملة أمام خطاب «لا شيء يتغير».","ترياق اليأس: كيف تقرأ الصورة كاملة؟"],
+  ["حماية النسيج الاجتماعي","التنوع قوة حين نحميه من خطاب التفرقة.","ما الذي يجمعنا؟ رسالة مضادة لحملات التفريق."],
+  ["التربية الإعلامية للأبناء والشباب","أدوات بسيطة للأسرة لبناء الوعي الرقمي مبكرًا.","خمسة أسئلة تعلّمها لابنك قبل أن يصدّق أي فيديو."],
+  ["تجنب تحويل أخطاء الأفراد إلى أحكام على المجتمعات","نحكم على الفعل، لا على المجتمع كله.","مقطع لشخص واحد وحكم على مجتمع كامل: كيف نوقف السلسلة؟"]]},
+ {t:"الحماية المعرفية",i:"shield",lead:"مهارات تحمي عقلك قبل أن تصدّق أو تشارك.",items:[
+  ["التفكير النقدي","اسأل دائمًا: من قال؟ لماذا الآن؟ وما الدليل؟","ثلاثة أسئلة تحميك من أكثر الأخبار المضللة."],
+  ["التحقق من المعلومات","الرجوع إلى المصدر الأصلي ومقارنة أكثر من مصدر.","نتتبع خبرًا متداولًا حتى منبعه الأول."],
+  ["كشف الأخبار المضللة","علامات تنبّهك: عنوان صادم، مصدر مجهول، استعجال للمشاركة.","تشريح خبر مضلل انتشر: أين كانت العلامات؟"],
+  ["التحقق من الصور والفيديوهات","البحث العكسي، وفحص الزمان والمكان، والانتباه للتزييف العميق.","صورة قديمة بسياق جديد: البحث العكسي خطوة بخطوة."],
+  ["فهم السياق الأصلي للمحتوى","مقطع مقتطع قد يقول عكس ما قيل فعلًا.","شاهد الدقيقة كاملة: كيف يغيّر القص المعنى؟"],
+  ["التمييز بين الرأي والمعلومة","الرأي يُناقش، والمعلومة يُتحقق منها.","رأي أم معلومة؟ اختبر نفسك في ٦٠ ثانية."],
+  ["الانحياز التأكيدي","نصدّق بسرعة ما يوافق قناعاتنا.","لماذا صدّقت هذا الخبر فورًا؟ فخ يقع فيه الجميع."]]},
+ {t:"السلوك العملي والمسؤولية الإعلامية",i:"act",lead:"خطوات عملية: ماذا تفعل قبل النشر، ومتى ترد، وكيف تنتقد بمسؤولية.",items:[
+  ["توقف، فكر، ثم انشر","ثوانٍ قبل الضغط على «مشاركة» تمنع انتشار الكثير.","قاعدة الثواني الخمس قبل إعادة النشر."],
+  ["متى نرد ومتى نتجاوز؟","بعض الردود تخدم المضلل أكثر مما تكشفه.","تجاهل أم تفنيد؟ دليل سريع للقرار."],
+  ["الإبلاغ عن المحتوى المخالف","الإبلاغ أداة فعالة لا تحتاج جدالًا.","كيف تبلّغ عن محتوى مخالف في أشهر المنصات؟"],
+  ["دعم المصادر الموثوقة","تفاعلك مع المصدر الموثوق يرفعه أمام الآخرين.","إعجابك صوت: ادعم المصدر الصحيح."],
+  ["القنوات المؤسسية للنقد والمشاركة","للملاحظة طريق رسمي يوصلها ويعالجها.","عندك ملاحظة؟ أين توصلها لتُسمع فعلًا؟"],
+  ["الفرق بين النقد والإساءة","النقد يناقش الفكرة، والإساءة تهاجم الأشخاص.","نقد أم إساءة؟ أمثلة من الواقع."],
+  ["مراجعة المحتوى قبل النشر","مراجعة ما تنشره بالاستناد إلى المراجع الإعلامية السعودية.","قائمة فحص سريعة قبل أن تنشر."]]}
+];
+const AR=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+const pad=n=>AR(String(n).padStart(2,'0'));
+
+const map=document.getElementById('map'),threads=document.getElementById('threads');
+const rots=[-2,1.5,-1,2,-1.5,1,-2];
+DATA.forEach((d,k)=>{
+  const b=document.createElement('button');b.className='node';b.style.setProperty('--r',rots[k]+'deg');b.style.setProperty('--d',(.15+k*.09)+'s');
+  b.innerHTML=`<span class="fno">ملف ${pad(k+1)}</span><span class="folder"><span class="ficon"><svg viewBox="0 0 24 24">${ICONS[d.i]}</svg></span><span class="ftitle">${d.t}</span><span class="fmeta"><span>${AR(d.items.length)} موضوعات</span><span class="stamp">قادم</span></span></span>`;
+  b.onclick=()=>openFile(k);b.dataset.k=k;map.appendChild(b);
+});
+const nodes=[...map.querySelectorAll('.node')];
+
+function layout(){
+  const W=map.clientWidth,H=map.clientHeight,mobile=innerWidth<=900;
+  threads.innerHTML='';if(mobile){nodes.forEach(n=>{n.style.left='';n.style.top=''});return}
+  const cx=W/2,cy=H/2,rx=Math.min(W*.4,480),ry=H*.39;
+  nodes.forEach((n,k)=>{
+    const a=-Math.PI/2+k*2*Math.PI/7,x=cx+rx*Math.cos(a),y=cy+ry*Math.sin(a);
+    n.style.left=x+'px';n.style.top=y+'px';
+    const mx=(cx+x)/2+(y-cy)*.12,my=(cy+y)/2-(x-cx)*.12;
+    const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d',`M${cx},${cy} Q${mx},${my} ${x},${y}`);p.dataset.k=k;threads.appendChild(p);
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('r',2.6);
+    c.innerHTML=`<animateMotion dur="${3.2+k*.35}s" repeatCount="indefinite" path="M${cx},${cy} Q${mx},${my} ${x},${y}"/>`;threads.appendChild(c);
+  });
+}
+addEventListener('resize',layout);layout();
+
+const drawer=document.getElementById('drawer'),shade=document.getElementById('shade'),dbody=document.getElementById('dbody');
+let cur=-1;
+function openFile(k){
+  cur=k;const d=DATA[k];
+  document.getElementById('dno').textContent='ملف '+pad(k+1)+' · '+AR(d.items.length)+' موضوعات';
+  document.getElementById('dtitle').textContent=d.t;
+  document.getElementById('dlead').textContent=d.lead;
+  dbody.innerHTML='';dbody.scrollTop=0;
+  d.items.forEach(([name,def,idea],j)=>{
+    const el=document.createElement('div');el.className='topic';el.style.animationDelay=(.05+j*.05)+'s';
+    el.innerHTML=`<button class="tbtn" aria-expanded="false"><span class="tnum">${AR(j+1)}</span><span class="tname">${name}</span><svg class="tchev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="tmore"><div><p class="tdef">${def}</p><div class="idea"><span class="lbl">${FILM}فكرة حلقة قادمة</span><p>${idea}</p></div></div></div>`;
+    el.querySelector('.tbtn').onclick=e=>{const o=el.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',o);
+      dbody.querySelectorAll('.topic.open').forEach(t=>{if(t!==el){t.classList.remove('open');t.querySelector('.tbtn').setAttribute('aria-expanded','false')}})};
+    dbody.appendChild(el);
+  });
+  nodes.forEach(n=>n.classList.toggle('on',+n.dataset.k===k));
+  threads.querySelectorAll('path').forEach(p=>p.classList.toggle('on',+p.dataset.k===k));
+  map.classList.add('focus');drawer.classList.add('on');shade.classList.add('on');
+  document.getElementById('dclose').focus({preventScroll:true});
+}
+function closeFile(){drawer.classList.remove('on');shade.classList.remove('on');map.classList.remove('focus');nodes.forEach(n=>n.classList.remove('on'));threads.querySelectorAll('path').forEach(p=>p.classList.remove('on'));if(cur>=0)nodes[cur].focus({preventScroll:true});cur=-1}
+document.getElementById('dclose').onclick=closeFile;shade.onclick=closeFile;
+document.getElementById('next').onclick=()=>openFile((cur+1)%7);
+document.getElementById('prev').onclick=()=>openFile((cur+6)%7);
+addEventListener('keydown',e=>{if(e.key==='Escape'&&cur>=0)closeFile()});
+
+/* drifting digital network */
+(function(){const c=document.getElementById('net'),x=c.getContext('2d');let w,h,P=[];
+ function rs(){w=c.width=innerWidth;h=c.height=innerHeight;const n=Math.round(w*h/26000);P=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25}))}
+ rs();addEventListener('resize',rs);
+ return;
+ (function f(){x.clearRect(0,0,w,h);for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}
+  for(let i=0;i<P.length;i++){const a=P[i];x.fillStyle='rgba(214,84,70,.7)';x.fillRect(a.x-1,a.y-1,2,2);
+   for(let j=i+1;j<P.length;j++){const b=P[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;if(d<14000){x.strokeStyle=`rgba(214,84,70,${.18*(1-d/14000)})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}
+  requestAnimationFrame(f)})();})();
+</script>
+</body>
+</html>
