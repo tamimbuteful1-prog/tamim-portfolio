@@ -90,7 +90,7 @@ html,body{height:100%;background:var(--bg);color:var(--txt);font-family:"Alexand
     <span class="num" dir="ltr">01</span>
     <div class="body"><div class="kind">افحص قبل النشر</div><div class="name">معيار</div><div class="go"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></div></div>
   </a>
-  <a class="p p2" href="https://tamimbuteful1-prog.github.io/tamim-portfolio" data-c="#ffb547">
+  <a class="p p2" href="https://tamimbuteful1-prog.github.io/tamim-portfolio" data-c="#ffb547" data-frame="1">
     <div class="bgfx"></div><div class="grain"></div>
     <span class="num" dir="ltr">02</span>
     <div class="body"><div class="kind">البورتفوليو</div><div class="name">أعمالي</div><div class="go"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></div></div>
@@ -122,6 +122,7 @@ function openPanel(a,push){
   fly.innerHTML='<div class="bgfx"></div><div class="grain"></div><div class="center"><div><div class="'+name.className+'" dir="'+(name.getAttribute('dir')||'rtl')+'">'+name.textContent+'</div><div class="loader"><i></i></div></div></div>';
   document.body.appendChild(fly);
   requestAnimationFrame(()=>requestAnimationFrame(()=>Object.assign(fly.style,{left:'0px',top:'0px',width:innerWidth+'px',height:innerHeight+'px'})));
+  if(!a.dataset.frame){setTimeout(()=>{location.href=a.href},1350);return}
   frame.src=a.href;
   document.getElementById('vname').textContent=name.textContent;
   document.getElementById('vdot').style.setProperty('--dc',a.dataset.c);
@@ -135,6 +136,7 @@ document.querySelectorAll('.p').forEach(a=>a.addEventListener('click',e=>{
   if(e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();openPanel(a,true);
 }));
 document.getElementById('back').onclick=()=>{if(history.state&&history.state.o)history.back();else closeV()};
+addEventListener('pageshow',()=>{document.querySelectorAll('.fly').forEach(f=>f.remove());busy=false});
 addEventListener('popstate',()=>{if(open)closeV()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&open)document.getElementById('back').click()});
 </script>
