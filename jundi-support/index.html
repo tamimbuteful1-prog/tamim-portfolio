@@ -6,7 +6,7 @@
 <title>كيف تدعم مبادرة جندي على الحدود الرقمية؟</title>
 <meta name="description" content="أربع طرق سريعة لدعم مبادرة جندي على الحدود الرقمية.">
 <meta property="og:title" content="كيف تدعم مبادرة جندي على الحدود الرقمية؟">
-<meta property="og:description" content="صوّر حلقة، سجّل صوتك، تفاعل، أو أعلن أنك جندي رقمي.">
+<meta property="og:description" content="شاركنا إنتاج حلقة، سجّل فويس أوفر، أو تفاعل معنا.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -37,7 +37,7 @@ h1{margin-top:20px;font-family:Alexandria,sans-serif;font-weight:900;font-size:c
 h1 span{color:var(--g2)}
 .def{margin:18px auto 0;max-width:620px;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.85;color:#d6d0c3;padding:14px 20px;border-right:3px solid var(--g2);background:linear-gradient(90deg,transparent,rgba(194,61,46,.14));text-align:right}
 
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{position:relative;text-align:right;border-radius:18px;padding:0;color:#1d1e20;transform:rotate(var(--r));transition:transform .5s cubic-bezier(.2,.8,.2,1);animation:in .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d)}
 @keyframes in{from{transform:translateY(50px) rotate(var(--r))}}
 .card:hover,.card:focus-visible{transform:translateY(-10px) rotate(0);outline:none}
@@ -93,8 +93,8 @@ h1 span{color:var(--g2)}
 .copy.done{background:var(--g2);color:#fff}
 .copy svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-@media(max-width:1020px){.grid{grid-template-columns:repeat(2,1fr);gap:22px}}
-@media(max-width:560px){
+@media(max-width:1020px){.grid{gap:16px}}
+@media(max-width:720px){
  .page{padding:20px 16px 40px}
  .hero{padding:5vh 0 4vh}
  .grid{grid-template-columns:1fr;gap:16px}
@@ -129,7 +129,7 @@ h1 span{color:var(--g2)}
   <div class="top"><span class="rec"><i></i>RECRUITING</span><span dir="ltr">JUNDI / DIGITAL FRONTIER</span></div>
 
   <header class="hero">
-    <span class="badge" dir="ltr">CALL FOR SUPPORT · 4 WAYS</span>
+    <span class="badge" dir="ltr">CALL FOR SUPPORT · 3 WAYS</span>
     <h1>كيف تدعم مبادرة<br><span>جندي على الحدود الرقمية؟</span></h1>
     <p class="def">مبادرة تمنح المواطن معرفة بأساليب الأعداء الهجومية، وتقترح خططًا دفاعية فعّالة.</p>
   </header>
@@ -158,28 +158,25 @@ const ACCOUNT='حساب المبادرة';
 const IC={
  cam:'<rect x="2.5" y="7" width="13" height="10" rx="2"/><path d="m15.5 10.5 6-3v9l-6-3"/><circle cx="7" cy="12" r="2"/>',
  mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/>',
- heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/><path d="M3 4l2 2M21 4l-2 2"/>',
- badge:'<path d="M12 2.5 14.6 5l3.5-.4.6 3.5L21.5 10 20 13.2l.6 3.5-3.5.6L15 20.4 12 18.8 9 20.4l-2.1-3.1-3.5-.6L4 13.2 2.5 10l2.8-1.9.6-3.5 3.5.4Z"/><path d="m8.8 12 2.2 2.2 4.3-4.4"/>'
+ heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/><path d="M3 4l2 2M21 4l-2 2"/>'
+
 };
 const ICS='<svg viewBox="0 0 24 24">',ICE='</svg>';
 const COPY_IC='<svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg>';
 const LOCK_IC='<svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>';
 
 const WAYS=[
- {i:'cam',t:'صوّر حلقة',s:'حلقة قصيرة بأسلوبك، في حسابك.',stamp:'إعلامي',
+ {i:'cam',t:'صوّر حلقة',s:'صانع محتوى؟ شاركنا إنتاج حلقة.',stamp:'إعلامي',
   steps:['اختر موضوعًا من موضوعات المبادرة.','صوّر حلقة قصيرة بأسلوبك.',`انشرها في حسابك مع منشن لـ${ACCOUNT}.`]},
  {i:'mic',t:'سجّل فويس أوفر',s:'اكتب وسجّل… والباقي علينا.',stamp:'صوت',
   steps:['تكتب نص الحلقة.','تسجّل التعليق الصوتي.','ننفّذ الموشن جرافيك والمونتاج.','نرسل لك الفيديو لتراجعه.'],
   note:'لا ننشر الحلقة إلا بعد موافقتك.'},
- {i:'heart',t:'تفاعل معنا',s:'تفاعل، شارك، وانشر الهاشتاق.',stamp:'داعم',
-  steps:['تفاعل مع منشورات المبادرة.','شارك محتواها مع متابعيك.','تفاعل مع هاشتاق المبادرة.'],
-  copy:{lbl:'HASHTAG',text:HASHTAG,btn:'انسخ الهاشتاق'}},
- {i:'badge',t:'أعلن انضمامك',s:'قلها لمتابعيك: أنا «جندي رقمي».',stamp:'جندي',
-  steps:['انسخ المنشور الجاهز أو اكتب بأسلوبك.','انشره في حسابك.'],
-  copy:{lbl:'READY POST',text:`أنا «جندي رقمي» 🇸🇦\nوأشارك في دعم مبادرة جندي على الحدود الرقمية؛ لنعرف أساليب الأعداء الهجومية ونتصدّى لها بوعي.\n${HASHTAG}`,btn:'انسخ المنشور'}}
+ {i:'heart',t:'تفاعل معنا',s:'لايك - تعليق - إعادة نشر - اقتباس',stamp:'داعم',
+  steps:['حط لايك على منشورات المبادرة.','شارك رأيك في التعليقات.','أعد نشر المحتوى مع متابعيك.','اقتبس المنشور وأضف تعليقك.'],
+  copy:{lbl:'HASHTAG',text:HASHTAG,btn:'انسخ الهاشتاق'}}
 ];
 const AR=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
-const grid=document.getElementById('grid'),rots=[-1.4,1,-.8,1.4];
+const grid=document.getElementById('grid'),rots=[-1.4,1,-.8];
 WAYS.forEach((w,k)=>{
   const b=document.createElement('button');b.className='card';b.style.setProperty('--r',rots[k]+'deg');b.style.setProperty('--d',(.2+k*.12)+'s');
   b.innerHTML=`<span class="pin"></span><span class="sheet"><span class="vis"><span class="no">${AR('0'+(k+1))}</span>${ICS+IC[w.i]+ICE}</span>
@@ -191,7 +188,7 @@ const modal=document.getElementById('modal'),shade=document.getElementById('shad
 let last=null;
 function openWay(k){
   const w=WAYS[k];last=grid.children[k];
-  document.getElementById('mno').textContent='الطريقة '+AR('0'+(k+1))+' / ٠٤';
+  document.getElementById('mno').textContent='الطريقة '+AR('0'+(k+1))+' / '+AR('0'+WAYS.length);
   document.getElementById('mtitle').innerHTML=ICS+IC[w.i]+ICE+w.t;
   let h='<ol class="steps">'+w.steps.map((s,j)=>`<li style="animation-delay:${.15+j*.1}s">${s}</li>`).join('')+'</ol>';
   if(w.note)h+=`<div class="note">${LOCK_IC}${w.note}</div>`;
