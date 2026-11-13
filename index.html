@@ -1,21 +1,193 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>تميم الحارثي | Tamim Al-Harthi</title>
-<style>
-body{min-height:100vh;margin:0;display:grid;place-items:center;background:#11151c;color:#f6f7f8;font:1rem system-ui,sans-serif}
-main{text-align:center;padding:2rem} h1{font-size:clamp(2.25rem,8vw,4rem);margin:0}
-p{color:#b9c2ce;margin:.5rem 0 2rem} nav{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap}
-a{color:inherit;border:1px solid #8291a3;padding:.75rem 1.25rem;border-radius:.5rem;text-decoration:none}
-a:hover,a:focus-visible{background:#f6f7f8;color:#11151c}
-</style>
-<main>
-<h1>تميم الحارثي</h1>
-<p lang="en" dir="ltr">Tamim Al-Harthi · Portfolio</p>
-<nav aria-label="لغة البورتفوليو">
-<a href="./ar/">البورتفوليو العربي</a>
-<a href="./en/" lang="en" dir="ltr">English Portfolio</a>
-</nav>
-</main>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141920">
+  <meta name="description" content="أعمال تميم الحارثي في تقديم البرامج وصناعة المحتوى.">
+  <title>تميم الحارثي | Tamim Al-Harthi</title>
+  <link rel="preconnect" href="https://tamimimpact.com" crossorigin>
+  <style>
+    @font-face {
+      font-family: Changa;
+      src: url("https://tamimimpact.com/assets/fonts/changa-arabic-800-normal.woff2") format("woff2");
+      font-weight: 800;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Sans Arabic";
+      src: url("https://tamimimpact.com/assets/ibm-plex-sans-arabic-arabic-500-normal-C4MQITzh.woff2") format("woff2");
+      font-weight: 500;
+      font-display: swap;
+    }
+    :root {
+      color-scheme: dark;
+      --felt: #141920;
+      --cream: #ebe5d8;
+      --paper: #d6cfbb;
+      --red: #c9433f;
+      --line: rgb(235 229 216 / 22%);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--felt);
+      color: var(--cream);
+      font: 500 1rem/1.55 "IBM Plex Sans Arabic", Tahoma, sans-serif;
+    }
+    .board {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      display: grid;
+      align-items: center;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: clamp(2rem, 6vw, 6rem) clamp(1.25rem, 7vw, 7rem);
+      background: radial-gradient(ellipse at 44% 35%, #28313d55, #10141bba),
+        url("https://tamimimpact.com/assets/felt-DKW3_qkX.webp") center / 680px repeat,
+        var(--felt);
+    }
+    .board::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: url("https://tamimimpact.com/assets/grain-ipUuhSRE.png") repeat;
+      opacity: .14;
+      pointer-events: none;
+    }
+    .evidence {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      pointer-events: none;
+    }
+    .evidence span {
+      position: absolute;
+      width: clamp(13rem, 27vw, 27rem);
+      aspect-ratio: 1.25;
+      background: var(--paper) center / cover;
+      border: .65rem solid var(--paper);
+      opacity: .17;
+      filter: blur(6px) saturate(.55);
+      box-shadow: 0 1.5rem 4rem #000a;
+    }
+    .evidence .notes {
+      top: -8%;
+      left: -6%;
+      transform: rotate(-13deg);
+      background-image: url("https://tamimimpact.com/assets/photo-notes-ncdg4xDP.webp");
+    }
+    .evidence .print {
+      bottom: -12%;
+      right: -5%;
+      transform: rotate(11deg);
+      background-image: url("https://tamimimpact.com/assets/photo-print-D-99ZzB9.webp");
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      align-items: center;
+      gap: clamp(2rem, 8vw, 8rem);
+      width: min(100%, 70rem);
+      margin-inline: auto;
+    }
+    h1 {
+      margin: 0;
+      font: 800 clamp(2.6rem, 6vw, 6rem)/1.22 Changa, Tahoma, sans-serif;
+      text-shadow: 0 .2rem 1.5rem #0008;
+    }
+    .accent { color: var(--red); margin-inline-start: .06em; }
+    .english-name {
+      width: fit-content;
+      margin: .65rem 0 clamp(1.6rem, 3.5vw, 2.5rem);
+      color: #c4bdb0;
+      font: 500 clamp(.85rem, 1.7vw, 1.15rem)/1.5 system-ui, sans-serif;
+      letter-spacing: .045em;
+    }
+    .languages { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .language {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      min-height: 3.35rem;
+      padding: .65rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: .3rem;
+      color: var(--cream);
+      background: #141920a8;
+      text-decoration: none;
+      transition: background .18s, border-color .18s, transform .18s;
+    }
+    .language[lang="en"] { font-family: system-ui, sans-serif; font-size: .9rem; }
+    .language.primary { background: var(--cream); color: var(--felt); border-color: var(--cream); }
+    .language:hover { transform: translateY(-2px); border-color: var(--cream); background: #242a33; }
+    .language.primary:hover { background: #fff8e8; }
+    .language:focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
+    .arrow { color: #e98378; font: 1.05rem system-ui, sans-serif; }
+    .primary .arrow { color: #9e332e; }
+    .portrait {
+      position: relative;
+      justify-self: center;
+      width: min(100%, 24rem);
+      margin: 0;
+      padding: .65rem .65rem 2.5rem;
+      transform: rotate(-3deg);
+      background: linear-gradient(160deg, var(--cream), var(--paper));
+      box-shadow: 0 2rem 4rem -1rem #000c;
+    }
+    .portrait::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: -.48rem;
+      left: calc(50% - .45rem);
+      width: .9rem;
+      height: .9rem;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 28%, #ffb2a0, #b84338 46%, #571f1e 90%);
+      box-shadow: .1rem .2rem .4rem #0009;
+    }
+    .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: #181716; }
+    @media (max-width: 740px) {
+      .board { padding-block: 3rem 2.5rem; }
+      .layout { grid-template-columns: 1fr; gap: 1.8rem; max-width: 30rem; }
+      .portrait { grid-row: 1; width: min(56vw, 16rem); padding: .45rem .45rem 1.55rem; }
+      .intro { text-align: center; }
+      .english-name { margin-inline: auto; }
+      .languages { justify-content: center; }
+    }
+    @media (max-width: 370px) {
+      .languages { display: grid; grid-template-columns: minmax(0, 1fr); }
+      .language { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .language { transition: none; }
+      .language:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="board">
+    <div class="evidence" aria-hidden="true">
+      <span class="notes"></span>
+      <span class="print"></span>
+    </div>
+    <div class="layout">
+      <div class="intro">
+        <h1>تميم الحارثي<span class="accent" aria-hidden="true">.</span></h1>
+        <p class="english-name" lang="en" dir="ltr">Tamim Al-Harthi · Portfolio</p>
+        <nav class="languages" aria-label="لغة البورتفوليو">
+          <a class="language primary" href="./ar/">البورتفوليو العربي <span class="arrow" aria-hidden="true">↖</span></a>
+          <a class="language" href="./en/" lang="en" dir="ltr">English Portfolio <span class="arrow" aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+      <figure class="portrait">
+        <img src="https://tamimimpact.com/media/founder.jpg" width="720" height="720" alt="تميم الحارثي" fetchpriority="high">
+      </figure>
+    </div>
+  </main>
+</body>
 </html>
