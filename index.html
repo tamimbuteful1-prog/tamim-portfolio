@@ -94,14 +94,18 @@
       margin-inline: auto;
     }
     h1 {
+      display: grid;
+      justify-items: start;
+      gap: .06em;
       margin: 0;
-      font: 800 clamp(2.6rem, 6vw, 6rem)/1.22 Changa, Tahoma, sans-serif;
+      font: 800 clamp(2.65rem, 6.8vw, 6.4rem)/1.45 Changa, Tahoma, sans-serif;
       text-shadow: 0 .2rem 1.5rem #0008;
     }
-    .accent { color: var(--red); margin-inline-start: .06em; }
+    h1 span { display: block; }
+    h1 .surname { color: #d2524d; }
     .english-name {
       width: fit-content;
-      margin: .65rem 0 clamp(1.6rem, 3.5vw, 2.5rem);
+      margin: clamp(1rem, 2vw, 1.65rem) 0 clamp(1.6rem, 3.5vw, 2.5rem);
       color: #c4bdb0;
       font: 500 clamp(.85rem, 1.7vw, 1.15rem)/1.5 system-ui, sans-serif;
       letter-spacing: .045em;
@@ -156,6 +160,7 @@
       .layout { grid-template-columns: 1fr; gap: 1.8rem; max-width: 30rem; }
       .portrait { grid-row: 1; width: min(56vw, 16rem); padding: .45rem .45rem 1.55rem; }
       .intro { text-align: center; }
+      h1 { width: fit-content; margin-inline: auto; font-size: clamp(2.65rem, 10vw, 4.25rem); }
       .english-name { margin-inline: auto; }
       .languages { justify-content: center; }
     }
@@ -177,7 +182,7 @@
     </div>
     <div class="layout">
       <div class="intro">
-        <h1>تميم الحارثي<span class="accent" aria-hidden="true">.</span></h1>
+        <h1><span>تميم</span> <span class="surname">الحارثي</span></h1>
         <p class="english-name" lang="en" dir="ltr">Tamim Al-Harthi · Portfolio</p>
         <nav class="languages" aria-label="لغة البورتفوليو">
           <a class="language primary" href="./ar/">البورتفوليو العربي <span class="arrow" aria-hidden="true">↖</span></a>
